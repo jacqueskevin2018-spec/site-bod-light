@@ -2,17 +2,19 @@ export const homepage = {
   hero: {
     background: "/hero/hero-bg.jpg",
     visual: "/hero/hero-visual.png",
-    eyebrow: "Agence créative basée à Douala",
+    eyebrow: "Agence créative",
     brandLine: "BOD LIGHT SARL",
-    titleLineOne: "Donner à votre entreprise",
-    titleLineTwoPrefix: "la",
-    titleHighlight: "lumière",
-    titleLineTwoSuffix: "qu’elle mérite.",
+    titleLineOne: "Votre entreprise mérite",
+    titleLineTwoPrefix: "plus de",
+    titleHighlight: "lumière.",
+    titleLineTwoSuffix: "",
     subtitle:
       "Nous transformons votre image en présence claire, crédible et mémorable.",
     expertise: "Infographie • Vidéo • IA • Signalétique",
     proof: "235+ projets réalisés à Douala et partout au Cameroun",
   },
+  servicesRibbon:
+    "INFOGRAPHIE | TOTEM LUMINEUX | PLAQUE PUBLICITAIRE | MONTAGE VIDÉO | FORMATION INTELLIGENCE ARTIFICIELLE",
   serviceOffer: [
     {
       title: "Infographie",

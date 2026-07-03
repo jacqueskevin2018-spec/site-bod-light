@@ -24,14 +24,18 @@ export default function HeroSection() {
           <p className="hero-fade-up mx-auto inline-flex rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[#f5c542] shadow-sm backdrop-blur lg:mx-0">
             {homepage.hero.brandLine}
           </p>
-          <h1 className="hero-reference-title mx-auto mt-5 max-w-[22rem] text-[2rem] font-semibold leading-[1.18] text-white min-[380px]:text-4xl sm:max-w-2xl sm:text-5xl lg:mx-0 lg:mt-7 lg:text-6xl lg:leading-[1.08]">
+          <h1 className="hero-reference-title mx-auto mt-5 max-w-[18rem] text-[1.55rem] font-semibold leading-[1.2] text-white min-[380px]:max-w-[21rem] min-[380px]:text-[1.75rem] sm:max-w-2xl sm:text-5xl lg:mx-0 lg:mt-7 lg:text-6xl lg:leading-[1.08]">
             <span className="title-line normal-case">{homepage.hero.titleLineOne}</span>
             <span className="title-line">
               <span className="normal-case">{homepage.hero.titleLineTwoPrefix} </span>
               <span className="title-light normal-case">
                 {homepage.hero.titleHighlight}
               </span>{" "}
-              <span className="normal-case">{homepage.hero.titleLineTwoSuffix}</span>
+              {homepage.hero.titleLineTwoSuffix ? (
+                <span className="normal-case">
+                  {homepage.hero.titleLineTwoSuffix}
+                </span>
+              ) : null}
             </span>
           </h1>
           <p className="hero-fade-up mt-5 text-sm font-semibold text-[#f5c542] lg:hidden">
@@ -49,7 +53,7 @@ export default function HeroSection() {
 
           <div className="hero-fade-up mt-7 flex flex-col items-center gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center lg:mt-10 lg:items-stretch lg:justify-start lg:gap-3">
             <a
-              href="/realisations"
+              href="#realisations"
               className="flex min-h-12 w-full max-w-xs items-center justify-center rounded-md bg-white px-5 py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.08em] text-[#06162b] shadow-xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:bg-[#f5c542] hover:shadow-[#f5c542]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4 focus-visible:ring-offset-[#06162b] sm:w-auto lg:min-h-14 lg:px-6 lg:py-3 lg:text-sm"
             >
               Voir les réalisations

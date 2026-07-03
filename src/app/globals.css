@@ -109,6 +109,24 @@ html {
   }
 }
 
+@keyframes clientMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes servicesRibbon {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .hero-fade-up {
   animation: heroFadeUp 800ms ease-out both;
 }
@@ -244,6 +262,14 @@ html {
   animation: softReveal 900ms ease-out both;
 }
 
+.client-marquee {
+  animation: clientMarquee 32s linear infinite;
+}
+
+.services-ribbon-track {
+  animation: servicesRibbon 26s linear infinite;
+}
+
 @supports (animation-timeline: view()) {
   .premium-reveal {
     animation-timeline: view();
@@ -324,5 +350,13 @@ html {
 
   .premium-reveal {
     animation-duration: 760ms;
+  }
+
+  .client-marquee {
+    animation-duration: 28s;
+  }
+
+  .services-ribbon-track {
+    animation-duration: 22s;
   }
 }

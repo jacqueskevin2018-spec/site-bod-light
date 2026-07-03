@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import AnimatedStats from "@/components/AnimatedStats";
 import ContactNudgePopup from "@/components/ContactNudgePopup";
+import FeaturedPortfolioTabs from "@/components/FeaturedPortfolioTabs";
 import FloatingActions from "@/components/FloatingActions";
 import { clients } from "@/data/clients";
 import { company } from "@/data/company";
@@ -29,11 +30,51 @@ function SectionHeader({ eyebrow, title, description }) {
 }
 
 export default function LandingPage() {
-  const featuredProjects = portfolio.projects.slice(0, 4);
+  const portfolioCategories = [
+    {
+      label: "ENSEIGNE LUMINEUSE",
+      items: portfolio.projects.filter(
+        (project) => project.type === "Signalétique",
+      ),
+    },
+    {
+      label: "VISUELS",
+      items: portfolio.projects.filter(
+        (project) => project.type === "Design graphique",
+      ),
+    },
+    {
+      label: "VIDÉO",
+      items: [
+        {
+          title: portfolio.video.title,
+          image: portfolio.video.thumbnail,
+        },
+      ],
+    },
+  ];
 
   return (
     <main className="flex-1 overflow-hidden bg-white">
       <HeroSection />
+
+      <section className="border-y border-white/10 bg-[#020b18] py-3 text-white">
+        <div className="services-ribbon overflow-hidden">
+          <div className="services-ribbon-track flex w-max items-center gap-10">
+            {[homepage.servicesRibbon, homepage.servicesRibbon].map(
+              (ribbonText, index) => (
+                <p
+                  key={`${ribbonText}-${index}`}
+                  className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.22em] text-white/78"
+                  aria-hidden={index === 1}
+                >
+                  <span className="text-[#f5c542]">{ribbonText}</span>
+                </p>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
 
       <section id="realisations" className="px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
@@ -42,48 +83,7 @@ export default function LandingPage() {
             title="Nos réalisations"
             description="La preuve la plus simple reste visuelle : une marque plus claire, plus visible, plus crédible."
           />
-          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
-            {featuredProjects.map((project) => (
-              <article
-                key={project.image}
-                className="group min-w-[78vw] max-w-[20rem] snap-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#0b2a5b]/10 md:min-w-0 md:max-w-none"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 78vw, 30vw"
-                    className="object-cover transition-transform duration-500 md:group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-xs font-semibold uppercase text-[#f28c28]">
-                    {project.type}
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-[#07182d] sm:text-xl">
-                    {project.title}
-                  </h3>
-                  <a
-                    href={company.whatsapp.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-4 py-2 text-xs font-semibold text-[#06162b] transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#f5c542]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#07182d]"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      className="h-4 w-4"
-                      fill="currentColor"
-                    >
-                      <path d="M12.04 2.25A9.66 9.66 0 0 0 3.7 16.8l-1.1 4.03 4.13-1.08a9.62 9.62 0 0 0 5.3 1.52h.01a9.51 9.51 0 0 0 9.55-9.5 9.57 9.57 0 0 0-9.55-9.52Zm0 17.4h-.01a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-2.45.64.65-2.38-.2-.31a8.04 8.04 0 1 1 6.41 3.35Zm4.42-6.03c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
-                    </svg>
-                    Commander maintenant
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <FeaturedPortfolioTabs categories={portfolioCategories} />
           <div className="mt-8 text-center">
             <Link
               href="/realisations"
@@ -99,21 +99,26 @@ export default function LandingPage() {
         <section className="bg-slate-50 px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeader eyebrow="Clients" title="Ils nous font confiance" />
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
-              {clients.map((client) => (
-                <div
-                  key={client.logo}
-                  className="relative flex aspect-[4/3] items-center justify-center rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
-                >
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    sizes="(max-width: 640px) 45vw, 160px"
-                    className="object-contain p-4"
-                  />
-                </div>
-              ))}
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-slate-50 to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-slate-50 to-transparent" />
+              <div className="client-marquee flex w-max gap-4">
+                {[...clients, ...clients].map((client, index) => (
+                  <div
+                    key={`${client.logo}-${index}`}
+                    aria-hidden={index >= clients.length}
+                    className="relative flex h-24 w-36 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:h-28 sm:w-44"
+                  >
+                    <Image
+                      src={client.logo}
+                      alt={index >= clients.length ? "" : client.name}
+                      fill
+                      sizes="176px"
+                      className="object-contain p-4"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
