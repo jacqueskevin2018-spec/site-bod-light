@@ -30,7 +30,7 @@ export default function ContactNudgePopup() {
   }
 
   return (
-    <aside className="fixed bottom-5 left-4 z-[60] w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#07182d]/94 p-4 text-white shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 sm:left-5">
+    <aside className="fixed bottom-24 left-4 z-[60] w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#07182d]/94 p-4 text-white shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 sm:bottom-5 sm:left-5">
       <button
         type="button"
         aria-label="Fermer le message de contact"

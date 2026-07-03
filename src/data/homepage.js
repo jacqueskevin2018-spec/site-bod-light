@@ -9,7 +9,7 @@ export const homepage = {
     titleLineTwoSuffix: "qu’elle mérite.",
     subtitle:
       "Infographie, vidéo, IA et signalétique à Douala — partout au Cameroun.",
-    expertise: "Identité visuelle • Vidéo • IA • Signalétique",
+    expertise: "Infographie • Vidéo • IA • Signalétique",
   },
   serviceOffer: [
     {
@@ -129,6 +129,13 @@ export const homepage = {
   contactNudge: {
     text: "Besoin d’un visuel, d’une enseigne ou d’une formation ?",
     cta: "Contactez-nous",
+  },
+  freeDiagnostic: {
+    title: "Diagnostic gratuit",
+    text: "Votre image reflète-t-elle vraiment la valeur de votre entreprise ?",
+    description:
+      "BOD LIGHT analyse gratuitement votre communication visuelle.",
+    cta: "Demander mon diagnostic gratuit",
   },
   manager: {
     name: "Kevin BODOL",

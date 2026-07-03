@@ -29,7 +29,7 @@ export default function AnimatedStats({ stats }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+    <section ref={sectionRef} className="px-5 py-12 sm:px-8 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (

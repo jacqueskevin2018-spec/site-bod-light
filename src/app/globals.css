@@ -238,7 +238,7 @@ html {
 }
 
 .premium-reveal {
-  animation: softReveal 780ms ease-out both;
+  animation: softReveal 900ms ease-out both;
 }
 
 @supports (animation-timeline: view()) {
@@ -273,5 +273,19 @@ html {
   .slogan-word,
   .title-line {
     opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-reference-title {
+    gap: 0.2em;
+  }
+
+  .hero-reference-title::after {
+    animation-duration: 6.8s;
+  }
+
+  .title-line {
+    word-spacing: 0.03em;
   }
 }
