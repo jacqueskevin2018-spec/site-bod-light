@@ -12,11 +12,11 @@ import HeroSection from "./HeroSection";
 
 function SectionHeader({ eyebrow, title, description }) {
   return (
-    <div className="mx-auto mb-10 max-w-3xl text-center">
+    <div className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
       <p className="text-sm font-semibold uppercase text-[#f28c28]">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold text-[#07182d] sm:text-4xl">
+      <h2 className="mt-3 text-2xl font-semibold text-[#07182d] sm:text-4xl">
         {title}
       </h2>
       {description ? (
@@ -35,7 +35,7 @@ export default function LandingPage() {
     <main className="flex-1 overflow-hidden bg-white">
       <HeroSection />
 
-      <section className="px-5 py-12 sm:px-8 lg:px-10 lg:py-20">
+      <section className="px-5 py-10 sm:px-8 lg:px-10 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-6 rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase text-[#f28c28]">
@@ -59,35 +59,51 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="realisations" className="px-5 py-12 sm:px-8 lg:px-10 lg:py-24">
+      <section id="realisations" className="px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Réalisations"
             title="Nos réalisations"
             description="Quelques projets pour découvrir l’univers visuel BOD LIGHT."
           />
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
             {featuredProjects.map((project) => (
               <article
                 key={project.image}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#0b2a5b]/10"
+                className="group min-w-[78vw] max-w-[20rem] snap-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#0b2a5b]/10 md:min-w-0 md:max-w-none"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 768px) 90vw, 30vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 78vw, 30vw"
+                    className="object-cover transition-transform duration-500 md:group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-5">
                   <p className="text-xs font-semibold uppercase text-[#f28c28]">
                     {project.type}
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold text-[#07182d]">
+                  <h3 className="mt-2 text-lg font-semibold text-[#07182d] sm:text-xl">
                     {project.title}
                   </h3>
+                  <a
+                    href={company.whatsapp.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-4 py-2 text-xs font-semibold text-[#06162b] transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#f5c542]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#07182d]"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      className="h-4 w-4"
+                      fill="currentColor"
+                    >
+                      <path d="M12.04 2.25A9.66 9.66 0 0 0 3.7 16.8l-1.1 4.03 4.13-1.08a9.62 9.62 0 0 0 5.3 1.52h.01a9.51 9.51 0 0 0 9.55-9.5 9.57 9.57 0 0 0-9.55-9.52Zm0 17.4h-.01a8.03 8.03 0 0 1-4.1-1.12l-.3-.18-2.45.64.65-2.38-.2-.31a8.04 8.04 0 1 1 6.41 3.35Zm4.42-6.03c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
+                    </svg>
+                    Commander maintenant
+                  </a>
                 </div>
               </article>
             ))}
@@ -104,7 +120,7 @@ export default function LandingPage() {
       </section>
 
       {clients.length > 0 ? (
-        <section className="bg-slate-50 px-5 py-12 sm:px-8 lg:px-10 lg:py-24">
+        <section className="bg-slate-50 px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeader eyebrow="Clients" title="Ils nous font confiance" />
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
@@ -129,7 +145,7 @@ export default function LandingPage() {
 
       <AnimatedStats stats={homepage.stats} />
 
-      <section className="px-5 py-12 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Témoignages" title="Ce que disent nos clients" />
           <div className="grid gap-4 md:grid-cols-3">
@@ -189,7 +205,7 @@ export default function LandingPage() {
           href={company.phone.href}
           className="flex min-h-12 items-center justify-center rounded-md bg-[#0d4ca3] px-3 py-2 text-center text-sm font-semibold text-white"
         >
-          Appel 696951471
+          📞 Appel 696951471
         </a>
         <a
           href={company.whatsapp.href}
