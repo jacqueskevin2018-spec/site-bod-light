@@ -5,7 +5,7 @@ import { homepage } from "@/data/homepage";
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate min-h-[calc(100svh-6rem)] overflow-hidden bg-[#020b18] text-white lg:min-h-[calc(100svh-7rem)]">
+    <section className="relative isolate min-h-[calc(100svh-5rem)] overflow-hidden bg-[#020b18] text-white">
       <Image
         src={homepage.hero.background}
         alt="Création visuelle BOD LIGHT SARL"
@@ -19,12 +19,12 @@ export default function HeroSection() {
       <div className="hero-texture absolute inset-0 -z-10 opacity-[0.18]" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-[#020b18] to-transparent" />
 
-      <div className="mx-auto grid min-h-[calc(100svh-6rem)] w-full max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-18 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[1fr_0.9fr] lg:px-10 lg:py-24">
+      <div className="mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_0.82fr] lg:px-10 lg:py-20">
         <div className="max-w-3xl text-center lg:text-left">
           <p className="hero-fade-up inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase text-[#f5c542] shadow-sm backdrop-blur">
             {homepage.hero.eyebrow}
           </p>
-          <h1 className="hero-reference-title mt-7 text-4xl font-semibold leading-[1.08] text-white min-[380px]:text-5xl sm:text-6xl lg:text-6xl xl:text-7xl">
+          <h1 className="hero-reference-title mt-7 text-4xl font-semibold leading-[1.1] text-white min-[380px]:text-5xl sm:text-6xl lg:text-6xl">
             <span className="title-line normal-case">{homepage.hero.titleLineOne}</span>
             <span className="title-line">
               <span className="normal-case">{homepage.hero.titleLineTwoPrefix} </span>
@@ -34,14 +34,8 @@ export default function HeroSection() {
               <span className="normal-case">{homepage.hero.titleLineTwoSuffix}</span>
             </span>
           </h1>
-          <p className="hero-fade-up mx-auto mt-7 max-w-2xl text-base leading-8 text-white/[0.82] sm:text-lg lg:mx-0">
+          <p className="hero-fade-up mx-auto mt-7 max-w-xl text-base leading-8 text-white/[0.82] sm:text-lg lg:mx-0">
             {homepage.hero.subtitle}
-          </p>
-          <p className="hero-fade-up mt-5 text-sm font-semibold text-[#f5c542] sm:text-base">
-            {homepage.hero.expertise}
-          </p>
-          <p className="hero-fade-up mt-3 text-sm font-medium text-white/70">
-            {company.location.mention}
           </p>
 
           <div className="hero-fade-up mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
@@ -62,7 +56,7 @@ export default function HeroSection() {
               <span className="text-base">{company.phone.display}</span>
             </a>
             <a
-              href="#realisations"
+              href="/realisations"
               className="flex min-h-14 items-center justify-center rounded-md border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-extrabold uppercase text-white backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/[0.18] hover:shadow-lg hover:shadow-[#145bb4]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4 focus-visible:ring-offset-[#06162b]"
             >
               Voir nos réalisations
@@ -84,27 +78,6 @@ export default function HeroSection() {
             />
           </div>
 
-          <div className="w-full max-w-md rounded-2xl border border-white/12 bg-white/[0.10] p-4 text-left shadow-xl shadow-black/20 backdrop-blur">
-            <div className="flex items-center gap-4">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white/10">
-                <Image
-                  src={homepage.manager.photo}
-                  alt="Kevin Bodol, Manager de BOD LIGHT SARL"
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-white">
-                  {homepage.manager.name}
-                </p>
-                <p className="mt-1 text-xs font-medium text-[#f5c542]">
-                  {homepage.manager.role}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

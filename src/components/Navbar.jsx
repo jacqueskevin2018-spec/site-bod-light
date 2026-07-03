@@ -1,19 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { company } from "@/data/company";
-
 const NAV_LINKS = [
   { label: "Accueil", href: "/" },
-  { label: "A propos", href: "/#manager" },
-  { label: "Services", href: "/#services" },
-  { label: "Réalisations", href: "/#realisations" },
-  { label: "Spot Vidéo", href: "/#spot-video" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Formations", href: "/formations" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -23,10 +19,10 @@ export default function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#020b18]/88 shadow-2xl shadow-black/10 backdrop-blur-xl transition-shadow duration-300">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#020b18]/86 shadow-2xl shadow-black/10 backdrop-blur-xl transition-shadow duration-300">
       <nav
         aria-label="Navigation principale"
-        className="mx-auto flex h-24 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-28 lg:px-10"
+        className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10"
       >
         <Link
           href="/"
@@ -34,20 +30,9 @@ export default function Navbar() {
           className="group flex items-center gap-3 rounded-sm outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4 focus-visible:ring-offset-[#020b18]"
           onClick={closeMenu}
         >
-          <span className="relative flex h-16 w-28 items-center justify-center overflow-visible sm:h-20 sm:w-36 lg:h-24 lg:w-44">
-            <Image
-              src={company.logo}
-              alt=""
-              fill
-              sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
-              className="object-contain mix-blend-screen"
-            />
-          </span>
-          <span className="sr-only flex-col leading-none">
-            <span className="text-base font-semibold tracking-wide text-[#0b1f3a]">
-              BOD LIGHT
-            </span>
-            <span className="mt-1 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-slate-500">
+          <span className="text-lg font-black tracking-[0.08em] text-white sm:text-xl">
+            BOD<span className="text-[#f5c542]">LIGHT</span>{" "}
+            <span className="text-xs font-semibold tracking-[0.22em] text-white/70">
               SARL
             </span>
           </span>
@@ -84,9 +69,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href={company.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             className="rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-5 py-3 text-sm font-extrabold uppercase text-[#06162b] shadow-lg shadow-[#f28c28]/25 transition duration-300 hover:-translate-y-0.5 hover:shadow-[#f5c542]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-[#020b18]"
           >
             DEMANDER UN DEVIS
@@ -155,9 +138,7 @@ export default function Navbar() {
           </ul>
 
           <Link
-            href={company.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             className="mt-4 flex min-h-12 items-center justify-center rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-5 py-3 text-center text-sm font-extrabold uppercase text-[#06162b] shadow-sm transition-colors hover:from-[#f5c542] hover:to-[#f28c28] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-[#020b18]"
             onClick={closeMenu}
           >

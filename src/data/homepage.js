@@ -8,9 +8,31 @@ export const homepage = {
     titleHighlight: "lumière",
     titleLineTwoSuffix: "qu’elle mérite.",
     subtitle:
-      "Agence créative basée à Douala, nous accompagnons les marques dans leur identité visuelle, leur communication digitale et leur visibilité.",
+      "Infographie, vidéo, IA et signalétique à Douala — partout au Cameroun.",
     expertise: "Identité visuelle • Vidéo • IA • Signalétique",
   },
+  serviceOffer: [
+    {
+      title: "Infographie",
+      description:
+        "Création d’affiches, visuels réseaux sociaux et supports de communication.",
+    },
+    {
+      title: "Montage vidéo",
+      description:
+        "Montage de spots, contenus courts et vidéos de présentation.",
+    },
+    {
+      title: "Coach IA",
+      description:
+        "Formation et accompagnement pour utiliser l’IA dans votre communication.",
+    },
+    {
+      title: "Enseigne lumineuse",
+      description:
+        "Conception et réalisation d’enseignes pour votre visibilité physique.",
+    },
+  ],
   problemSolutions: [
     {
       problem: "Votre entreprise manque de visibilité ?",
