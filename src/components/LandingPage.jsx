@@ -29,44 +29,20 @@ function SectionHeader({ eyebrow, title, description }) {
 }
 
 export default function LandingPage() {
-  const featuredProjects = portfolio.projects.slice(0, 3);
+  const featuredProjects = portfolio.projects.slice(0, 4);
 
   return (
     <main className="flex-1 overflow-hidden bg-white">
       <HeroSection />
-
-      <section className="px-5 py-10 sm:px-8 lg:px-10 lg:py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase text-[#f28c28]">
-              {homepage.freeDiagnostic.title}
-            </p>
-            <h2 className="mt-3 max-w-3xl text-2xl font-semibold leading-tight text-[#07182d] sm:text-3xl">
-              {homepage.freeDiagnostic.text}
-            </h2>
-            <p className="mt-3 max-w-2xl text-justify text-sm leading-7 text-slate-600 sm:text-left">
-              {homepage.freeDiagnostic.description}
-            </p>
-          </div>
-          <Link
-            href={company.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-12 items-center justify-center rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-6 py-3 text-center text-sm font-semibold text-[#06162b] transition duration-300 hover:-translate-y-1"
-          >
-            {homepage.freeDiagnostic.cta}
-          </Link>
-        </div>
-      </section>
 
       <section id="realisations" className="px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Réalisations"
             title="Nos réalisations"
-            description="Quelques projets pour découvrir l’univers visuel BOD LIGHT."
+            description="La preuve la plus simple reste visuelle : une marque plus claire, plus visible, plus crédible."
           />
-          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
             {featuredProjects.map((project) => (
               <article
                 key={project.image}
@@ -111,7 +87,7 @@ export default function LandingPage() {
           <div className="mt-8 text-center">
             <Link
               href="/realisations"
-              className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#07182d] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#0d4ca3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4"
+              className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#07182d] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#0d4ca3] hover:shadow-lg hover:shadow-[#0d4ca3]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4"
             >
               Voir toutes les réalisations
             </Link>
@@ -143,6 +119,55 @@ export default function LandingPage() {
         </section>
       ) : null}
 
+      <section className="bg-[#020b18] px-5 py-14 text-white sm:px-8 lg:px-10 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#f5c542]">
+              {homepage.serviceStory.eyebrow}
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+              {homepage.serviceStory.title}
+            </h2>
+            <p className="mt-5 max-w-xl text-justify text-base leading-8 text-white/72 sm:text-left">
+              {homepage.serviceStory.description}
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            {homepage.serviceStory.items.map((item, index) => (
+              <article
+                key={item.title}
+                className="premium-reveal rounded-2xl border border-white/10 bg-white/[0.06] p-5 shadow-2xl shadow-black/10 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#f5c542]/40 hover:bg-white/[0.09]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f5c542]">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/68">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {homepage.serviceOffer.map((service) => (
+            <article
+              key={service.title}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition duration-300 hover:-translate-y-1 hover:border-[#f5c542]/35 hover:bg-white/[0.08]"
+            >
+              <h3 className="text-base font-semibold text-white">
+                {service.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-white/62">
+                {service.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <AnimatedStats stats={homepage.stats} />
 
       <section className="px-5 py-10 sm:px-8 lg:px-10 lg:py-24">
@@ -163,6 +188,30 @@ export default function LandingPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-10 sm:px-8 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-6 rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#f28c28]">
+              {homepage.freeDiagnostic.title}
+            </p>
+            <h2 className="mt-3 max-w-3xl text-2xl font-semibold leading-tight text-[#07182d] sm:text-3xl">
+              {homepage.freeDiagnostic.text}
+            </h2>
+            <p className="mt-3 max-w-2xl text-justify text-sm leading-7 text-slate-600 sm:text-left">
+              {homepage.freeDiagnostic.description}
+            </p>
+          </div>
+          <Link
+            href={company.whatsapp.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-12 items-center justify-center rounded-md bg-[#07182d] px-6 py-3 text-center text-sm font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#0d4ca3] hover:shadow-lg hover:shadow-[#0d4ca3]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c542] focus-visible:ring-offset-4"
+          >
+            {homepage.freeDiagnostic.cta}
+          </Link>
         </div>
       </section>
 

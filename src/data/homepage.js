@@ -3,13 +3,15 @@ export const homepage = {
     background: "/hero/hero-bg.jpg",
     visual: "/hero/hero-visual.png",
     eyebrow: "Agence créative basée à Douala",
-    titleLineOne: "Donnez à votre entreprise",
+    brandLine: "BOD LIGHT SARL",
+    titleLineOne: "Donner à votre entreprise",
     titleLineTwoPrefix: "la",
     titleHighlight: "lumière",
     titleLineTwoSuffix: "qu’elle mérite.",
     subtitle:
-      "Infographie, vidéo, IA et signalétique à Douala — partout au Cameroun.",
+      "Nous transformons votre image en présence claire, crédible et mémorable.",
     expertise: "Infographie • Vidéo • IA • Signalétique",
+    proof: "235+ projets réalisés à Douala et partout au Cameroun",
   },
   serviceOffer: [
     {
@@ -136,6 +138,26 @@ export const homepage = {
     description:
       "BOD LIGHT analyse gratuitement votre communication visuelle.",
     cta: "Demander mon diagnostic gratuit",
+  },
+  serviceStory: {
+    eyebrow: "Transformation",
+    title: "De l’idée à une image qui donne envie de vous choisir.",
+    description:
+      "Chaque support doit clarifier votre message, rassurer vos clients et augmenter votre visibilité.",
+    items: [
+      {
+        title: "Clarifier",
+        description: "Structurer votre message pour être compris en quelques secondes.",
+      },
+      {
+        title: "Créer",
+        description: "Concevoir des visuels, vidéos et enseignes avec une direction forte.",
+      },
+      {
+        title: "Déployer",
+        description: "Adapter vos contenus aux réseaux, supports imprimés et espaces physiques.",
+      },
+    ],
   },
   manager: {
     name: "Kevin BODOL",
