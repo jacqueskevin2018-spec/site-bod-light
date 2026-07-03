@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import { company } from "@/data/company";
+
 export default function PortfolioShowcase({ portfolio }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -64,14 +66,51 @@ export default function PortfolioShowcase({ portfolio }) {
             {portfolio.video.description}
           </p>
         </div>
-        <video
-          className="aspect-video w-full rounded-xl bg-black object-cover"
-          controls
-          preload="metadata"
-          poster={portfolio.video.thumbnail}
-        >
-          <source src={portfolio.video.src} type="video/mp4" />
-        </video>
+        {portfolio.video.available ? (
+          <video
+            className="aspect-video w-full rounded-xl bg-black object-cover"
+            controls
+            preload="metadata"
+            poster={portfolio.video.thumbnail}
+          >
+            <source src={portfolio.video.src} type="video/mp4" />
+          </video>
+        ) : (
+          <div className="relative overflow-hidden rounded-xl bg-black">
+            <div className="relative aspect-video">
+              <Image
+                src={portfolio.video.thumbnail}
+                alt={portfolio.video.title}
+                fill
+                sizes="90vw"
+                className="object-cover opacity-70"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/12 text-white backdrop-blur">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-7 w-7 translate-x-0.5"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <p className="mt-4 text-lg font-semibold">
+                  Vidéo bientôt disponible
+                </p>
+                <a
+                  href={company.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-11 items-center justify-center rounded-md bg-gradient-to-r from-[#f28c28] to-[#f5c542] px-5 py-2.5 text-sm font-semibold text-[#06162b] transition hover:-translate-y-0.5"
+                >
+                  Demander un spot vidéo
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </article>
 
       {selectedProject ? (

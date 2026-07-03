@@ -1,5 +1,7 @@
 import FloatingActions from "@/components/FloatingActions";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
+import PremiumCarousel from "@/components/PremiumCarousel";
+import { company } from "@/data/company";
 import { portfolio } from "@/data/portfolio";
 
 export const metadata = {
@@ -27,6 +29,14 @@ export default function RealisationsPage() {
           <PortfolioShowcase portfolio={portfolio} />
         </div>
       </section>
+
+      <PremiumCarousel
+        eyebrow="Sélection"
+        title="Réalisations à découvrir"
+        items={portfolio.projects.slice(0, 6)}
+        ctaHref={company.whatsapp.href}
+        ctaLabel="Commander maintenant"
+      />
       <FloatingActions />
     </main>
   );
